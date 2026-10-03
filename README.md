@@ -36,8 +36,8 @@ A full-stack web application for creating, managing, searching, filtering and so
 
 ### Option 1: Command line
 ```bash
-git clone <your-repo-url>
-cd task-manager
+git clone https://github.com/Valacy4/employee-task-manager.git
+cd employee-task-manager
 mvn spring-boot:run
 ```
 
@@ -156,4 +156,4 @@ src/main/resources/
 
 ## Author
 
-Your Name
+Valacy4 — https://github.com/Valacy4

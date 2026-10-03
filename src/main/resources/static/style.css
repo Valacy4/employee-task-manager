@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f3f5f9; color: #222; }
+header { background: #2b4a8b; color: #fff; padding: 16px 24px; }
+header h1 { margin: 0; font-size: 22px; }
+main { max-width: 1000px; margin: 20px auto; padding: 0 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.card { background: #fff; border-radius: 8px; padding: 16px; text-align: center; border-top: 4px solid #2b4a8b; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.card span { display: block; font-size: 28px; font-weight: bold; }
+.card small { color: #666; }
+.card.pending { border-color: #e6a100; }
+.card.progress { border-color: #2e86de; }
+.card.done { border-color: #27ae60; }
+
+.panel { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.panel h2 { margin-top: 0; font-size: 18px; }
+label { display: block; margin-bottom: 10px; font-size: 14px; flex: 1; }
+input, select, textarea { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row label { min-width: 160px; }
+.filters input, .filters select { margin-top: 0; flex: 1; min-width: 160px; }
+.error { color: #c0392b; font-size: 12px; display: block; min-height: 14px; }
+
+button { background: #2b4a8b; color: #fff; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; font: inherit; }
+button:hover { opacity: .9; }
+button.secondary { background: #777; }
+button.danger { background: #c0392b; }
+button.small { padding: 4px 8px; font-size: 12px; margin-right: 4px; }
+
+.table-wrap { overflow-x: auto; margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e3e6ec; font-size: 14px; vertical-align: top; }
+th { background: #eef1f7; }
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; color: #fff; }
+.LOW { background: #7f8c8d; } .MEDIUM { background: #e6a100; } .HIGH { background: #c0392b; }
+td select { margin: 0; padding: 4px; }
+.overdue { color: #c0392b; font-weight: bold; }
+th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+th.sortable:hover { background: #dde3f0; }
+.banner { background: #fdecea; color: #c0392b; border: 1px solid #f5c6cb; border-radius: 4px;
+          padding: 10px 16px; max-width: 976px; margin: 12px auto 0; font-size: 14px; }
+@media (max-width: 600px) { .stats { grid-template-columns: repeat(2, 1fr); } }

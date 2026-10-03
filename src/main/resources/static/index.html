@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Employee Task Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>Employee Task Management System</h1></header>
+<div id="errorBanner" class="banner" hidden></div>
+
+<main>
+  <!-- Dashboard -->
+  <section class="stats">
+    <div class="card"><span id="statTotal">0</span><small>Total</small></div>
+    <div class="card pending"><span id="statPending">0</span><small>Pending</small></div>
+    <div class="card progress"><span id="statInProgress">0</span><small>In Progress</small></div>
+    <div class="card done"><span id="statCompleted">0</span><small>Completed</small></div>
+  </section>
+
+  <!-- Add / Edit form -->
+  <section class="panel">
+    <h2 id="formTitle">Add Task</h2>
+    <form id="taskForm" novalidate>
+      <input type="hidden" id="taskId">
+      <label>Title *
+        <input type="text" id="title" maxlength="100">
+        <span class="error" id="err-title"></span>
+      </label>
+      <label>Description
+        <textarea id="description" rows="2" maxlength="500"></textarea>
+      </label>
+      <div class="row">
+        <label>Priority *
+          <select id="priority">
+            <option value="LOW">Low</option>
+            <option value="MEDIUM" selected>Medium</option>
+            <option value="HIGH">High</option>
+          </select>
+        </label>
+        <label>Status *
+          <select id="status">
+            <option value="PENDING" selected>Pending</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="COMPLETED">Completed</option>
+          </select>
+        </label>
+        <label>Due Date *
+          <input type="date" id="dueDate">
+          <span class="error" id="err-dueDate"></span>
+        </label>
+        <label>Assigned To
+          <input type="text" id="assignedTo" maxlength="100" placeholder="Employee name">
+        </label>
+      </div>
+      <div class="actions">
+        <button type="submit" id="saveBtn">Add Task</button>
+        <button type="button" id="cancelBtn" class="secondary" hidden>Cancel</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Search + filters -->
+  <section class="panel">
+    <div class="row filters">
+      <input type="text" id="search" placeholder="Search by title...">
+      <select id="filterStatus">
+        <option value="">All statuses</option>
+        <option value="PENDING">Pending</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="COMPLETED">Completed</option>
+      </select>
+      <select id="filterPriority">
+        <option value="">All priorities</option>
+        <option value="LOW">Low</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HIGH">High</option>
+      </select>
+      <input type="text" id="filterAssignee" placeholder="Filter by employee...">
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="sortable" data-sort="title" data-label="Title">Title</th>
+            <th>Description</th>
+            <th class="sortable" data-sort="assignedTo" data-label="Assigned To">Assigned To</th>
+            <th class="sortable" data-sort="priority" data-label="Priority">Priority</th>
+            <th class="sortable" data-sort="status" data-label="Status">Status</th>
+            <th class="sortable" data-sort="dueDate" data-label="Due Date">Due Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="taskBody"></tbody>
+      </table>
+    </div>
+    <p id="emptyMsg" hidden>No tasks found.</p>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
